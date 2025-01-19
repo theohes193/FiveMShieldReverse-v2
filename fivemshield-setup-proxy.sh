@@ -125,6 +125,16 @@ EOL
 
   echo "Proxy ajouté pour $DOMAIN avec IP $FIVEM_IP:$FIVEM_PORT et écoute sur le port $LISTEN_PORT."
   echo "Cache assigné : $CACHE_DIR"
+  echo "=== Configuration Server CFG ==="
+  echo "set sv_listingIpOverride \"$FIVEM_IP\""
+  echo "set sv_forceIndirectListing false"
+  echo "set sv_proxyIPRanges \"$FIVEM_IP/32\""
+  echo "set sv_endpoints \"$FIVEM_IP:$FIVEM_PORT\""
+  echo "set adhesive_cdnKey \"$(generate_random_string)\""
+  echo "fileserver_remove \".*\""
+  echo "fileserver_add \".*\" \"https://$DOMAIN/files\""
+  echo "fileserver_list"
+ 
 }
 
 # Menu principal
